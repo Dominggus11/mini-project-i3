@@ -110,7 +110,7 @@ const Task = () => {
         <Grid container spacing={3}>
           <Grid item xs={12} style={styles.titlePage}>
             <Typography variant="h5" color="initial" fontWeight={600}>
-              My Task
+              Data Siswa
             </Typography>
             <Button
               onClick={handleOpen}
@@ -119,10 +119,10 @@ const Task = () => {
               startIcon={<MdAddTask size={20} />}
               style={styles.customButton}
             >
-              Add Task
+              Tambah Siswa
             </Button>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          {/* <Grid item xs={12} md={6} lg={6}>
             <Paper style={styles.cardTaskParent}>
               <Box
                 display="flex"
@@ -162,8 +162,8 @@ const Task = () => {
                 <CircularProgress />
               )}
             </Paper>
-          </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          </Grid> */}
+          {/* <Grid item xs={12} md={6} lg={6}>
             <Paper style={styles.cardTaskParent}>
               <Box
                 display="flex"
@@ -202,10 +202,10 @@ const Task = () => {
                 <CircularProgress />
               )}
             </Paper>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      {/* <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} style={styles.titlePage}>
             <Typography variant="h5" color="initial" fontWeight={600}>
@@ -288,7 +288,7 @@ const Task = () => {
             </Paper>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -300,7 +300,7 @@ const Task = () => {
             <MdAddTask size={50} />
           </Box>
           <Typography id="modal-modal-title" variant="h5" fontWeight="600">
-            Add Task
+            Tambah Siswa
           </Typography>
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>

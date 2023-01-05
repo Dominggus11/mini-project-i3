@@ -9,6 +9,9 @@ import { Post } from './pages/Post';
 import { User } from './pages/User';
 import { theme } from './components/theme';
 import '@fontsource/inter';
+import HomePages from './pages/HomePages';
+import { DataSiswa } from './pages/DataSiswa';
+import { DataKriteria } from './pages/DataKriteria';
 
 function Main() {
   return (
@@ -17,8 +20,9 @@ function Main() {
         <CssBaseline />
         <AppBarDrawer />
         <Routes>
-          <Route path="/" element={<Task />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/" element={<HomePages />} />
+          <Route path="/datasiswa" element={<User />} />
+          <Route path="/datakriteria" element={<DataKriteria />} />
           <Route path="/post" element={<Post />} />
         </Routes>
       </Box>
@@ -31,8 +35,9 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <Routes>
+          <Route path="/login" element={<Login />}/>
           <Route path="/*" element={<Main />} />
-          <Route path="/login" element={<Login />} />
+          
         </Routes>
       </ThemeProvider>
     </>

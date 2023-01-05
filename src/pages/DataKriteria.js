@@ -1,4 +1,5 @@
-import React from 'react';
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 import {
   Box,
   Typography,
@@ -11,10 +12,10 @@ import { styles } from '../components/styles';
 import DataTable from 'react-data-table-component';
 import axios from '../api/axios';
 
-export const User = () => {
+export const DataKriteria = () => {
   const columns = [
     {
-      name: 'ID',
+      name: 'NO',
       selector: (row) => row.ID,
     },
     // {
@@ -22,30 +23,23 @@ export const User = () => {
     //   selector: (row) => row.name,
     // },
     {
-      name: 'Nama',
-      selector: (row) => row.nama,
+      name: 'Kriteria',
+      selector: (row) => row.nama_kriteria,
     },
-    // {
-    //   name: 'Email',
-    //   selector: (row) => row.email,
-    // },
-    // {
-    //   name: 'Gender',
-    //   selector: (row) => row.gender,
-    // },
-    // {
-    //   name: 'Status',
-    //   selector: (row) => row.status,
-    // },
+    {
+      name: 'Bobot',
+      selector: (row) => row.bobot_kriteria,
+    },
+    
   ];
 
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState();
 
   React.useEffect(() => {
-    axios.get(`http://192.168.1.116:8080/student`).then((res) => {
-      const responseUsers = res.data.message;
+    axios.get(`http://192.168.1.116:8080/kriteria`).then((res) => {
+      const responseUsers = res.data.data;
       setUsers(responseUsers);
-      console.log(res.data.message);
+      console.log(res.data.data);
     });
   }, []);
   const isIndeterminate = (indeterminate) => indeterminate;
@@ -61,21 +55,22 @@ export const User = () => {
     >
       <Box>
         <Toolbar />
-        <Container maxWidth="sm" sx={{ mt: 6, mb: 6}}>
+        <Container maxWidth="sm" sx={{ mt: 6, mb: 6 }}>
           <Grid container spacing={3}>
-            <Grid item xs={12} style={styles.titlePage}>
-              {/* <Typography variant="h5" color="initial" fontWeight={600} alignContent="center">
-                DATA SISWA
-              </Typography> */}
+            <Grid item xs={12} style={styles.PageSPK}>
+              <Typography variant="h5" color="initial" fontWeight={600}>
+                DATA KRITERIA
+              </Typography>
             </Grid>
-            <Box sx={{ p: 4, position:"absolute"}}>
+            <Box 
+            sx={{ p: 4}}>
               <DataTable
-                title="DATA SISWA"
+                // title="Data Siswa" style={styles.PageSPK}
                 columns={columns}
                 data={users}
                 pagination
-                selectableRows
-                selectableRowsComponent={Checkbox}
+                // selectableRows
+                // selectableRowsComponent={Checkbox}
                 selectableRowsComponentProps={selectableRowsComponentProps}
               />
             </Box>

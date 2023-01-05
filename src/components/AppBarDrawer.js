@@ -2,6 +2,12 @@ import * as React from 'react';
 import MuiDrawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
 import { styles } from './styles';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import PowerSettingsNewRoundedIcon from '@mui/icons-material/PowerSettingsNewRounded';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   MenuItem,
   IconButton,
@@ -27,8 +33,11 @@ import {
   FaTasks,
   FaNewspaper,
   FaUser,
+  
 } from 'react-icons/fa';
 import MuiAppBar from '@mui/material/AppBar';
+import { PowerOffOutlined } from '@mui/icons-material';
+import { style } from '@mui/system';
 
 const drawerWidth = 240;
 
@@ -93,18 +102,28 @@ const Drawer = styled(
 function AppBarDrawer() {
   const itemList = [
     {
-      text: 'Task',
-      icon: <FaTasks />,
+      text: 'Dashboard',
+      icon: <DashboardIcon />,
       link: '/',
     },
     {
-      text: 'Post',
-      icon: <FaNewspaper />,
-      link: '/post',
+      text: 'Data Siswa',
+      icon: <FaUser />,
+      link: '/datasiswa',
     },
     {
-      text: 'User',
-      icon: <FaUser />,
+      text: 'Data Kriteria',
+      icon: <FormatListBulletedIcon />,
+      link: '/datakriteria',
+    },
+    {
+      text: 'Data Perhitungan',
+      icon: <BarChartIcon />,
+      link: '/user',
+    },
+    {
+      text: 'Data Hasil',
+      icon: <AssignmentIcon/>,
       link: '/user',
     },
   ];
@@ -143,20 +162,6 @@ function AppBarDrawer() {
           >
             <FaBars />
           </IconButton>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Box mr={1} sx={{ color: 'action.active' }}>
-              <FaSearch />
-            </Box>
-
-            <TextField
-              id="standard-search"
-              placeholder="Search Post"
-              type="search"
-              variant="standard"
-              color="primary"
-              InputProps={{ disableUnderline: true }}
-            />
-          </Box>
 
           <Box
             sx={{ flexGrow: 1, justifyContent: 'flex-end', display: 'flex' }}
@@ -192,7 +197,7 @@ function AppBarDrawer() {
             >
               <MenuItem onClick={handleCloseUserMenu}>
                 <ListItemText aria-disabled>
-                  <Typography>jennifer@gmail.com</Typography>
+                  <Typography>roymalau@gmail.com</Typography>
                 </ListItemText>
               </MenuItem>
               <Divider />
@@ -200,9 +205,9 @@ function AppBarDrawer() {
                 <ListItemIcon color="error">
                   <FaPowerOff color="error" fontSize="small" />
                 </ListItemIcon>
-                <ListItemText>
-                  <Typography color="error">Log Out</Typography>
-                </ListItemText>
+                <Link to='/login' component={RouterLink} underline="none">
+                  <Typography color="error" >Log Out</Typography>
+                </Link>
               </MenuItem>
             </Menu>
           </Box>
@@ -228,9 +233,9 @@ function AppBarDrawer() {
           }}
         >
           <Box display="flex" sx={{ ml: 2 }}>
-            <input type="image" img src={'/img/logo.svg'} alt="logo" />
+            <input type="image" img src={'/img/logo bm.png'} width="30px" alt="logo" />
             <Typography display="flex" fontWeight="700" sx={{ ml: 2 }}>
-              Todost
+              SPKJ
             </Typography>
           </Box>
           <IconButton onClick={toggleDrawer} size="small">
@@ -242,7 +247,7 @@ function AppBarDrawer() {
           {itemList.map((item, index) => {
             const { text, icon, link } = item;
             return (
-              <Link href={link} color="inherit" underline="none">
+              <Link to={link} component={RouterLink} color="inherit" underline="none">
                 <ListItemButton>
                   <ListItemIcon>
                     <Box

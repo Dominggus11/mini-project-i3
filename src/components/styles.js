@@ -29,6 +29,13 @@ export const styles = createTheme({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  PageSPK: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   customButton: {
     borderRadius: '10px',
     textTransform: 'none',
@@ -67,7 +74,7 @@ export const styles = createTheme({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    width: 400,
+    width: 300,
     bgcolor: '#fff',
     borderRadius: 3,
     boxShadow:
@@ -81,7 +88,7 @@ export const styles = createTheme({
     justifyContent: 'center',
     overflow: 'hidden',
     height: '97vh',
-    bgcolor: '#EFEFF5',
+    bgcolor: '#303090',
   },
 
   popUpSetting: {
